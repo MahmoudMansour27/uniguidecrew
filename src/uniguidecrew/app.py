@@ -9,7 +9,7 @@ import json
 from decoder import decoder
  
 # background
-st.image('./assets/streamlit background  UniGuid.png')
+st.image('./assets/bg.png')
 
 # intro
 st.title("Welcome to UniGuide 🎓️")
