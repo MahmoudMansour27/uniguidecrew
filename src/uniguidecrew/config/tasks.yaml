@@ -1,0 +1,53 @@
+rules_task:
+  description: >
+    Assess the student's academic standing based on CGPA ({cgpa}) and English proficiency level ({eng_level}). 
+    Determine that the student is currently at semester ({curr_semester}) and set the next one as their registration semester. 
+    Based on the registration semester credit limits ({sem_credits}) and CGPA, calculate the maximum number of credit hours allowed. 
+    Check if an English course is required according to university regulations ({regulations}). 
+  expected_output: >
+    A structured JSON file containing:\n
+    - Whether the student needs to take an English course.\n
+    - Current semester.\n
+    - Registration semester.\n
+    - Ordinary registration semester credit hours based semesters credit hour limits ({sem_credits}).\n
+    - The maximum credit hours the student can register based on both CGPA and if there any registration semester exception such that in the semester 2 (per Article 27).\n
+    - A justification for the decision aligned with university policies.\n
+  agent: rules_agent
+  
+
+
+
+# rank_courses_task:
+#   description: >
+#     Rank student's registration shortlist ({shortlist_cou}) using one of the following two methods only:\n
+#     Method number 1:\n
+#     If the student's credit hour limit {credits} satisfies the total credit hours of the registration semester {reg_sem_credit}, 
+#     then assign courses from the student's eligible course list {shortlist_cou} that in {reg_sem_courses} according to [Key Course: 7, Not a Key Course: 6]. You can use ({key_courses}) as a reference of key courses.\n
+#     For the other courses that not in the list assign he priority criteria based on the following criteria [Next Semester and key courses: 5 Very Very High Priority, Next Level and key courses: 4 Very High Priority, Next Semester courses: 3 High Priority, Key courses: 2 Medium Priority, Other courses: 1 Low Priority].\n  
+#     Method number 2:\n
+#     If the student's credit hour limit {credits} does not meet the total credit hours for registration semester {reg_sem_credit}, 
+#     rank all the student's eligible courses {shortlist_cou} based on university-defined priorities [Next Semester and key courses: 5 Very Very High Priority, Next Level and key courses: 4 Very High Priority, Next Semester courses: 3 High Priority, Key courses: 2 Medium Priority, Other courses: 1 Low Priority] only and don't assign with priority 6 even it's in the list. 
+#     Use the current semester ({curr_sem}) to reference the next semester ({next_sem}) and next level courses when assigning priority correctly. 
+#     This ensures that students register for the most crucial courses first, supporting their academic progression.
+#   expected_output: >
+#     A JSON file containing:",
+#     - A list of eligible courses with assigned priority scores.
+#     - A detailed explanation of the ranking methodology used.
+#   agent: courses_prioritizer
+
+
+
+# select_courses_task:
+#   description: >
+#     Choose courses with the highest priorities based on their course priority rankings {prioritized_list}, credit 
+#     hour limit ({crdits_limit}), and English course requirement ({english_course}). 
+#     Ensure that the english course credit hours is included in the student's credit hour limit {crdits_limit} 
+#     English courses is mandatory and has the highest priority so it is should be registrated first. 
+#     Ensure the selection maximizes academic progress and assign as max as possible credit hours.
+#   expected_output: >
+#     A JSON file containing:",
+#     - The final list of selected courses for the student to register with course credit hours and reasoning. 
+#     - A description justifying why each course was chosen.
+#   agent: courses_selector
+
+
