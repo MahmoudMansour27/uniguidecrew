@@ -55,7 +55,7 @@ pharmacy_regulations = {
         "Article 24": "If student's Egnlish level is 1 then the student show register F1 English Course",
         "Article 25": "If student's Egnlish level is 2 then the student show register FF2 English Course",
         "Article 26": "If student's Egnlish level is 3 then the student show register LGN1001 English Language Course",
-        "Article 29": "If student's Egnlish level is 4 then the student has completed English course and don't need to register the course.",
+        "Article 29": "If student's Egnlish level is 4 then the student has completed English course and don't need to register the course anymore.",
     }
 }
 

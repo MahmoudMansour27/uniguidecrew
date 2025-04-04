@@ -3,7 +3,7 @@ select_courses_task:
     Choose courses with the highest priorities based on their course priority rankings {prioritized_list}, credit 
     hour limit ({crdits_limit}), and English course requirement ({english_course}). 
     Ensure that the english course credit hours is included in the student's credit hour limit {crdits_limit} 
-    English courses is mandatory and has the highest priority so it is should be registrated first if it is not completed. 
+    Ensure English courses has the highest priority so it is should be registrated first if it is not  yet. 
     Ensure the selection maximizes academic progress and assign as max as possible credit hours.
   expected_output: >
     A JSON file containing:",
