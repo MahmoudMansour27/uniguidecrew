@@ -4,7 +4,7 @@ from pydantic import BaseModel
 import os
 
 # llms
-os.environ['GROQ_API_KEY'] = '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'
+os.environ['GROQ_API_KEY'] = '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'
 llama_llm = LLM(
     model = "groq/llama-3.3-70b-versatile",
     temperature= 0.0
