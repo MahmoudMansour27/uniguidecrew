@@ -2,5 +2,6 @@ google-genai
 pydantic
 crewai
 pysqlite3-binary
-chromadb==0.3.29
+chromadb
 pysqlite3
+streamlit
