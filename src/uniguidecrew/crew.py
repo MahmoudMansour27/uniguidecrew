@@ -129,7 +129,7 @@ class SelectionCrew():
 	def courses_selector(self) -> Agent:
 		return Agent(
 			config=self.agents_config['courses_selector'],
-			llm = llama_llm,
+			llm = llama_instant_llm,
 			verbose=True
 		)
 
