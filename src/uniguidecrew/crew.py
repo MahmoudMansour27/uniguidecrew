@@ -4,7 +4,7 @@ from pydantic import BaseModel
 import os
 
 # llms
-os.environ['GROQ_API_KEY'] = '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'
+os.environ['GROQ_API_KEY'] = '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'
 llama_llm = LLM(
     model = "groq/llama-3.3-70b-versatile",
     temperature= 0.0
@@ -129,7 +129,7 @@ class SelectionCrew():
 	def courses_selector(self) -> Agent:
 		return Agent(
 			config=self.agents_config['courses_selector'],
-			llm = llama_instant_llm,
+			llm = llama_llm,
 			verbose=True
 		)
 
