@@ -22,7 +22,7 @@ def run(cgpa, eng_lvl, curr_sem, comp_courses):
     credit_json_content = RulesCrew().crew().kickoff(inputs=rules_inputs)
     print('rules crew kickoff done')
   
-    time.sleep(3)
+    time.sleep(5)
     print('sleep 5 done')
 
     priority_inputs={
@@ -37,7 +37,7 @@ def run(cgpa, eng_lvl, curr_sem, comp_courses):
     prioritise_json_content = PriorityCrew().crew().kickoff(inputs=priority_inputs)
     print('priority crew kickoff done')
 
-    time.sleep(3)
+    time.sleep(5)
     print('sleep 5 done')
 
 
