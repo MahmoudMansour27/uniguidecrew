@@ -1,12 +1,12 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 from main import run
 import time
 import json
 from decoder import decoder
-
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
  
 # background
 st.image('./assets/streamlit background  UniGuid.png')
