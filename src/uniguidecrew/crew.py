@@ -20,6 +20,11 @@ llama_instant_llm = LLM(
     temperature= 0.0
 )
 
+turbo = LLM(
+    model = "groq/whisper-large-v3",
+    temperature= 0.0
+)
+
 
 # structured outputs
 
@@ -129,7 +134,7 @@ class SelectionCrew():
 	def courses_selector(self) -> Agent:
 		return Agent(
 			config=self.agents_config['courses_selector'],
-			llm = llama_llm,
+			llm = turbo,
 			verbose=True
 		)
 
