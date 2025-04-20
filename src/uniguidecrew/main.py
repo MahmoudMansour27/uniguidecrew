@@ -2,8 +2,8 @@
 import sys
 import warnings
 from crew import RulesCrew, PriorityCrew, SelectionCrew
-from knowledge import pharmacy_regulations, pharmacy_semesters_credit_hours, semester_courses_codes, key_courses_codes, credits_codes, completed_courses
-from prerequisite_checker import eligiablitiy_filter
+from knowledge import pharmacy_regulations, pharmacy_semesters_credit_hours, semester_courses_codes, key_courses_codes, credits_codes,  completed_courses
+from prerequisite_checker import eligiablitiy_filter, current_sem_not_completed
 import time
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
@@ -32,7 +32,8 @@ def run(cgpa, eng_lvl, curr_sem, comp_courses):
       'reg_sem_courses': semester_courses_codes[credit_json_content['registration_semester']], 
       'curr_sem': credit_json_content['current_semester'],
       'next_sem': credit_json_content['registration_semester'],
-      'key_courses': key_courses_codes
+      'key_courses': key_courses_codes,
+      'curr_sem_courses_not_completed': current_sem_not_completed(current_sem=credit_json_content['current_semester'], completed_courses=comp_courses)
     }
     prioritise_json_content = PriorityCrew().crew().kickoff(inputs=priority_inputs)
     print('priority crew kickoff done')
