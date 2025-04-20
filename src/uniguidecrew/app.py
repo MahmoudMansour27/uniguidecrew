@@ -16,7 +16,7 @@ st.set_page_config(initial_sidebar_state="collapsed")
 # authentcation ---------------
 names = ['Roaa', 'Yasmeen', 'Merhan', 'Arwa', 'Dr. Nora', 'Mahmoud']
 usernames = ['roaa', 'yasmeen', 'merhan', 'arwa', 'dr.nora', 'mahmoud']
-with open('hashed_pw.pkl', 'rb') as file:
+with open('src/uniguidecrew/hashed_pw.pkl', 'rb') as file:
     hashed_pass = pickle.load(file)
 
 authenticator = stauth.Authenticate(names, usernames, hashed_pass, 'uniguide', 'abc1234', cookie_expiry_days=10)
