@@ -1,3 +1,4 @@
 pydantic
 crewai
 pysqlite3-binary
+streamlit-authenticator==0.1.4
