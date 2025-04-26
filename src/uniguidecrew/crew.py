@@ -3,8 +3,9 @@ from crewai.project import CrewBase, agent, crew, task
 from pydantic import BaseModel
 import os
 
+
 # llms
-os.environ['GROQ_API_KEY'] = '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'
+os.environ['GROQ_API_KEY'] = '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'
 llama_llm = LLM(
     model = "groq/llama-3.3-70b-versatile",
     temperature= 0.0

@@ -33,9 +33,13 @@ data = {
     }
 }
 
-names = data.keys()
+names = list(data.keys())
 usernames = [info['username'] for info in data.values()]
 passwords = [info['password'] for info in data.values()]
+
+print(names)
+print(usernames)
+print(passwords)
 
 # Hash the passwords
 hashed_passwords = stauths.Hasher(passwords).generate()

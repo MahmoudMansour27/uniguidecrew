@@ -2,7 +2,13 @@
 import sys
 import warnings
 from crew import RulesCrew, PriorityCrew, SelectionCrew
-from knowledge import pharmacy_regulations, pharmacy_semesters_credit_hours, semester_courses_codes, key_courses_codes, credits_codes,  completed_courses
+from knowledge import (pharmacy_regulations, 
+                       pharmacy_semesters_credit_hours, 
+                       semester_courses_codes, 
+                       key_courses_codes, 
+                       credits_codes, 
+                       priorities, 
+                       completed_courses)
 from prerequisite_checker import eligiablitiy_filter, current_sem_not_completed
 import time
 
@@ -33,7 +39,8 @@ def run(cgpa, eng_lvl, curr_sem, comp_courses):
       'curr_sem': credit_json_content['current_semester'],
       'next_sem': credit_json_content['registration_semester'],
       'key_courses': key_courses_codes,
-      'curr_sem_courses_not_completed': current_sem_not_completed(current_sem=credit_json_content['current_semester'], completed_courses=comp_courses)
+      'curr_sem_courses_not_completed': current_sem_not_completed(current_sem=credit_json_content['current_semester'], completed_courses=comp_courses),
+      'priorities': priorities
     }
     prioritise_json_content = PriorityCrew().crew().kickoff(inputs=priority_inputs)
     print('priority crew kickoff done')
@@ -56,7 +63,7 @@ def run(cgpa, eng_lvl, curr_sem, comp_courses):
     print('selection crew kickoff done')
     print('Agent has finished its task!!!')
 
-    return selected_json
+    return (selected_json, prioritise_json_content, credit_json_content)
 
 
 # test

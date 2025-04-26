@@ -151,7 +151,7 @@ pharmacy_course_names = {
     "Drug Interaction": "PO 1003",
     "Advanced Drug Delivery Systems": "PT 1004",
     "Clinical Pharmacy and Pharmacotherapeutics III": "PP 1005",
-    "Entrepreneurship": "NP 1006",
+    "Entrepreneurship": "NP 007",
     "Clinical Research, Pharmacoepidemiology & Pharmacovigilance": "PP 1007"
 }
 
@@ -226,7 +226,7 @@ pharmacy_course_codes = {
     "PO 1003": "Drug Interaction",
     "PT 1004": "Advanced Drug Delivery Systems",
     "PP 1005": "Clinical Pharmacy and Pharmacotherapeutics III",
-    "NP 1006": "Entrepreneurship",
+    "NP 007": "Entrepreneurship",
     "PP 1007": "Clinical Research, Pharmacoepidemiology & Pharmacovigilance"
 }
 
@@ -307,7 +307,7 @@ courses_prerequisites_codes = {
     "PO 1003": "PO 805",
     "PT 1004": "PT 809",
     "PP 1005": "PP 803",
-    "NP 1006": "Registration",
+    "NP 007": "Registration",
     "PP 1007": "PP 803",
 
     "PB 901": "PB 703",
@@ -323,7 +323,7 @@ courses_prerequisites_codes = {
     "PO 1003": "PO 805",
     "PT 1004": "PT 809",
     "PP 1005": "PP 803",
-    "NP 1006": "Registration",
+    "NP 007": "Registration",
     "PP 1007": "PP 803",
 }
 
@@ -405,7 +405,7 @@ semester_courses_codes = {
     7: ["PM 704", "PO 704", "PC 710", "PB 703", "PT 708", "NP 705", "PE ---"],
     8: ["PP 801", "PO 805", "PO 806", "PP 802", "PT 809", "PP 803", "PE ---"],
     9: ["PB 901", "PP 902", "PP 903", "PG 904", "PT 905", "NP 906", "PP 907", "PE ---"],
-    10: ["PC 1001", "PP 1002", "PO 1003", "PT 1004", "PP 1005", "NP 1006", "PP 1007", "PE ---"]
+    10: ["PC 1001", "PP 1002", "PO 1003", "PT 1004", "PP 1005", "NP 007", "PP 1007", "PE ---"]
 }
 
 credits_codes = {
@@ -476,8 +476,17 @@ credits_codes = {
     "PO 1003": 2,
     "PT 1004": 2,
     "PP 1005": 3,
-    "NP 1006": 2,
+    "NP 007": 2,
     "PP 1007": 2,
     'F1 English': 2,
     'FF2 English': 2,
+}
+
+priorities = {
+    'Current semester not completed courses:': 6,
+    'Next Semester and key courses:': 5,
+    'Next Semester courses:': 4,
+    'Next Level and key courses:': 3,
+    'Key courses:': 2,
+    'Other courses:': 1
 }

@@ -7,7 +7,7 @@ rank_courses_task:
     For the other courses that not in the list assign he priority criteria based on the following criteria [Current semester not completed courses: 6 extremely high priority, Next Semester and key courses: 5 Very Very High Priority, Next Level and key courses: 4 Very High Priority, Next Semester courses: 3 High Priority, Key courses: 2 Medium Priority, Other courses: 1 Low Priority].\n  
     Method number 2:\n
     If the student's credit hour limit {credits} does not meet the total credit hours for registration semester {reg_sem_credit}, 
-    rank all the student's eligible courses {shortlist_cou} based on university-defined priorities [Current semester not completed courses: 6 extremely high priority, Next Semester and key courses: 5 Very Very High Priority, Next Level and key courses: 4 Very High Priority, Next Semester courses: 3 High Priority, Key courses: 2 Medium Priority, Other courses: 1 Low Priority] only and don't assign with priority 7 even it's in the list.
+    rank all the student's eligible courses {shortlist_cou} based on university-defined priorities {priorities} only and don't assign with priority 7 even it's in the list. You can use ({key_courses}) as a reference of key courses.
     Use the current semester not completed courses ({curr_sem_courses_not_completed}) and assign priority with 6 extremely high priority.
     Use the current semester ({curr_sem}) to reference the next semester ({next_sem}) and next level courses when assigning priority correctly. 
     This ensures that students register for the most crucial courses first, supporting their academic progression.

@@ -1,6 +1,6 @@
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# __import__('pysqlite3')
+# import sys
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import streamlit as st
 from main import run
@@ -10,12 +10,13 @@ from decoder import decoder
 import streamlit_authenticator as stauth
 import pickle
 from key_generator import names, usernames
+from knowledge import credits_codes
 
 st.set_page_config(initial_sidebar_state="collapsed")
 
 
 # Load hashed passwords from the file
-with open('src/uniguidecrew/hashed_pw.pkl', 'rb') as file:
+with open('hashed_pw.pkl', 'rb') as file:
     hashed_pass = pickle.load(file)
 
 authenticator = stauth.Authenticate(names, usernames, hashed_pass, 'uniguide', 'abc1234', cookie_expiry_days=10)
@@ -197,30 +198,29 @@ elif status:
     st.text_area('Enter your notes here')
 
     def guide_me():
-        result = run(cgpa=float(student_cgpa), 
-            eng_lvl=int(student_eng_level), 
-            curr_sem=int(student_curr_sem), 
-            comp_courses=student_selected_courses)
-        
-        # read selected files
-        # with open('./outputs/selected.json') as selected_json:
-        #     selected_json_content = json.load(selected_json)
-
-        # with open('./outputs/credits.json') as credits_json:
-        #     credits_json_content = json.load(credits_json)
+        result, extra, credits_json_content = run(cgpa=float(student_cgpa), 
+                     eng_lvl=int(student_eng_level), 
+                     curr_sem=int(student_curr_sem), 
+                     comp_courses=student_selected_courses)
 
         results_container.write(result['reasoning'])
         results_container.markdown(f"*CGPA: {student_cgpa}*")
         results_container.markdown(f"*Current Semester: {student_curr_sem}*")
-        # results_container.markdown(f"*Registration Semester: {credits_json_content['registration_semester']}*")
-        # results_container.markdown(f"*Semester Total Credit Hours: {credits_json_content['ordinary_registration_semester_credit_hours']}*")
-        # results_container.markdown(f"*Student Total Credit Hours: {selected_json_content['total_credit_hours']}*")
+        results_container.markdown(f"*Registration Semester: {credits_json_content['registration_semester']}*")
+        results_container.markdown(f"*Semester Total Credit Hours: {credits_json_content['ordinary_registration_semester_credit_hours']}*")
+        results_container.markdown(f"*Student Total Credit Hours: {result['total_credit_hours']}*")
 
 
         for course in result['selected_courses']:
             with results_container.expander(f"📚️ {decoder([course['course']])[0]} ---------------- {course['course']}"):
                 st.markdown(f"*Credit Hours: {course['credit_hours']}*")
                 st.write(f"Reasoning: {course['reasoning']}")
+
+        for course in extra['prioritisied_courses']:
+            if course['course'] not in [selected['course'] for selected in result['selected_courses']]:
+                with extra_container.expander(f"📚️ {decoder([course['course']])[0]} ---------------- {course['course']}"):
+                    st.markdown(f"*Credit Hours: {credits_codes[course['course']]}*")
+                    st.write(f"Priority: {course['priority']}")
             
         
     # generate button
@@ -231,6 +231,13 @@ elif status:
     st.header('Here is your Guide 🤓️')
 
     results_container = st.container()
+
+    # extra
+    st.markdown('---')
+    st.header('Extra Courses 💫️')
+    st.write('Here are some extra courses you can take for overload and handle unexpected scenarios:')
+
+    extra_container = st.container()
 
 
     # sidebar

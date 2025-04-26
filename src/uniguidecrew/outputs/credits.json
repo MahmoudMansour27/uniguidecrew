@@ -1,8 +1,8 @@
 {
-  "english_course": "F1 English Course",
-  "current_semester": 1,
-  "registration_semester": 2,
-  "ordinary_registration_semester_credit_hours": 19,
-  "student_maximum_credit_hours": 19,
-  "reasoning": "The student's CGPA is 3.5, which is above 1.9, so they are not limited to 12 credit hours. The student is currently in semester 1 and will register for semester 2. According to the university regulations, in semester 2, the student can register up to 19 credit hours. Additionally, since the student's English proficiency level is 1, they need to register for the F1 English Course as per Article 24. Therefore, the student can register for 19 credit hours in semester 2, including the required English course."
+  "english_course": "No",
+  "current_semester": 2,
+  "registration_semester": 3,
+  "ordinary_registration_semester_credit_hours": 18,
+  "student_maximum_credit_hours": 18,
+  "reasoning": "The student has a CGPA of 3.1, which is above 1.9, and an English proficiency level of 4, indicating they have completed the English course requirement (Article 29). The student is currently in semester 2 and will register for semester 3. According to the credit hour limits, semester 3 has a maximum of 18 credit hours (Level 2). Since the student's CGPA is above 1.9, they are not subject to the 12-credit hour limit (Article 28). Additionally, there is no exception for semester 3, so the student can register up to 18 credit hours. The decision is aligned with university policies, specifically Articles 7, 27, 28, and 29."
 }
