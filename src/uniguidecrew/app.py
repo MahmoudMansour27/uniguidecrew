@@ -1,6 +1,6 @@
-# __import__('pysqlite3')
-# import sys
-# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import streamlit as st
 from main import run
@@ -16,7 +16,7 @@ st.set_page_config(initial_sidebar_state="collapsed")
 
 
 # Load hashed passwords from the file
-with open('hashed_pw.pkl', 'rb') as file:
+with open('/src/uniguidecrew/hashed_pw.pkl', 'rb') as file:
     hashed_pass = pickle.load(file)
 
 authenticator = stauth.Authenticate(names, usernames, hashed_pass, 'uniguide', 'abc1234', cookie_expiry_days=10)
