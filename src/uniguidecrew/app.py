@@ -9,13 +9,12 @@ import json
 from decoder import decoder
 import streamlit_authenticator as stauth
 import pickle
+from key_generator import names, usernames
 
 st.set_page_config(initial_sidebar_state="collapsed")
 
 
-# authentcation ---------------
-names = ['Roaa', 'Yasmeen', 'Merhan', 'Arwa', 'Dr. Nora', 'Mahmoud']
-usernames = ['roaa', 'yasmeen', 'merhan', 'arwa', 'dr.nora', 'mahmoud']
+# Load hashed passwords from the file
 with open('src/uniguidecrew/hashed_pw.pkl', 'rb') as file:
     hashed_pass = pickle.load(file)
 
