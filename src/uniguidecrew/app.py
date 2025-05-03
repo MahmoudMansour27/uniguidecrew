@@ -213,7 +213,7 @@ elif status:
 
         for course in result['selected_courses']:
             with results_container.expander(f"📚️ {decoder([course['course']])[0]} ---------------- {course['course']}"):
-                st.markdown(f"*Credit Hours: {course['credits']}*")
+                st.markdown(f"*Credit Hours: {course['credit_hours']}*")
                 st.write(f"Reasoning: {course['reasoning']}")
 
         for course in extra['prioritisied_courses']:
