@@ -3,14 +3,8 @@ from crewai.project import CrewBase, agent, crew, task
 from pydantic import BaseModel
 import os
 
-# Personal: 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
-# SU: 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
-# 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
-
-
-
 # llms
-os.environ['GROQ_API_KEY'] = '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'
+# os.environ['GROQ_API_KEY'] = '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'
 llama_llm = LLM(
     model = "groq/llama-3.3-70b-versatile",
     temperature= 0.0
@@ -30,6 +24,16 @@ llama_guard = LLM(
     model = "groq/llama-guard-3-8b",
     temperature= 0.0
 )
+
+# Google
+os.environ['GEMINI_API_KEY'] = 'AIzaSyA2Xm4ZNEbkvlctbUEJCg8KqvGHyfdLTIw'
+
+gemini = LLM(
+    model="gemini/gemini-2.0-flash",
+    temperature=0.7,
+)
+
+
 
 
 # structured outputs
@@ -65,7 +69,7 @@ class RulesCrew():
 	def rules_agent(self) -> Agent:
 		return Agent(
 			config=self.agents_config['rules_agent'],
-			llm = llama_llm,
+			llm = gemini,
 			verbose=True
 		)
 
@@ -104,7 +108,7 @@ class PriorityCrew():
 	def courses_prioritizer(self) -> Agent:
 		return Agent(
 			config=self.agents_config['courses_prioritizer'],
-			llm = llama_llm,
+			llm = gemini,
 			verbose=True
 		)
 
@@ -140,7 +144,7 @@ class SelectionCrew():
 	def courses_selector(self) -> Agent:
 		return Agent(
 			config=self.agents_config['courses_selector'],
-			llm = llama_llm,
+			llm = gemini,
 			verbose=True
 		)
 
