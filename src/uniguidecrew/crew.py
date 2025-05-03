@@ -27,11 +27,16 @@ llama_guard = LLM(
 
 # Google
 os.environ['GEMINI_API_KEY'] = 'AIzaSyA2Xm4ZNEbkvlctbUEJCg8KqvGHyfdLTIw'
+print(os.environ['GEMINI_API_KEY'])
 
 gemini = LLM(
     model="gemini/gemini-2.0-flash",
     temperature=0.7,
 )
+
+print("Current model: ", gemini.model)
+print("Current temperature: ", gemini.temperature)
+
 
 
 
