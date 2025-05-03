@@ -214,7 +214,7 @@ elif status:
         for course in result['selected_courses']:
             with results_container.expander(f"📚️ {decoder([course['course']])[0]} ---------------- {course['course']}"):
                 st.markdown(f"*Credit Hours: {course['credit_hours']}*")
-                st.write(f"Reasoning: {course['reasoning']}")
+                st.write(f"Reasoning: {course['justification']}")
 
         for course in extra['prioritisied_courses']:
             if course['course'] not in [selected['course'] for selected in result['selected_courses']]:
